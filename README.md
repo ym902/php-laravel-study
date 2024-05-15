@@ -109,3 +109,7 @@ ServerName localhost:8080
 2. 「プロパティ」を選択
 3. 属性の「読み取り専用」のチェック外す → OK
 4. サブフォルダにも適用 → OK
+
+
+## Laravel 学習内容、作成手順
+(Notion)[https://volcano-lightning-92e.notion.site/Laravel-2de0267dae4d425b85b53e8ffecb420f?pvs=4]
