@@ -20,7 +20,7 @@ PHP、Laravelの学習で、掲示板アプリを作成したリポジトリで�
 - XAMPPとは、Apache、PHP、MySQLまでが入ったパッケージのこと
 
 1. 下記リンクから、XAMPPインストール
-* https://www.apachefriends.org/jp/index.html
+   * https://www.apachefriends.org/jp/index.html
 
 2. Select Components：すべてチェックが入った状態でNext
 
