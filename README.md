@@ -31,14 +31,14 @@ PHP、Laravelの学習で、掲示板を作成したリポジトリです。
 1. https://getcomposer.org/download/ __Composer-Setup.exe__ からインストール
 
 2. インストール時の設定
-    - Install for all users
+   - Install for all users
     - Developerモード : チェックせずNext
     - Add this PHP to your path : チェック入れる
     - Use a proxy server to connect to internet : チェックせずNext
 
-3. （インストール完了したらPC再起動）
+4. （インストール完了したらPC再起動）
 
-4. インストールできているかコマンドプロンプトで確認
+5. インストールできているかコマンドプロンプトで確認
 
 ```
 $ composer -v
