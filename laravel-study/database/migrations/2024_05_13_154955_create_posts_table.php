@@ -18,8 +18,8 @@ return new class extends Migration
                 $table->bigIncrements('id');
                 $table->string('username', 30);
                 $table->text('comment');
-                $table->date('postDate');
-                // $table->timestamps();
+                $table->dateTime('postDate')->default(now());
+                $table->timestamps();
             });
         }
     }
