@@ -13,7 +13,7 @@ PHP、Laravelの学習で、掲示板アプリを作成したリポジトリで�
 
 
 ## セットアップ
-XAMPP、Composer、Laravelのインストール、設定の手順について記載しています。
+XAMPP、Composer、Laravelのインストール、設定の手順を記載しています。
 
 
 ## XAMPP インストール
