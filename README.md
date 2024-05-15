@@ -112,4 +112,4 @@ ServerName localhost:8080
 
 
 ## Laravel 学習内容、作成手順
-(Notion)[https://volcano-lightning-92e.notion.site/Laravel-2de0267dae4d425b85b53e8ffecb420f?pvs=4]
+[Notion](https://volcano-lightning-92e.notion.site/Laravel-2de0267dae4d425b85b53e8ffecb420f?pvs=4)
