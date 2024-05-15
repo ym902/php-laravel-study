@@ -13,78 +13,67 @@ PHP、Laravelの学習で、掲示板アプリを作成したリポジトリで�
 
 
 ## セットアップ
-- XAMPP、Composer、Laravelのインストール、設定の手順について記載しています。
+XAMPP、Composer、Laravelのインストール、設定の手順について記載しています。
 
 
 ## XAMPP インストール
 - XAMPPとは、Apache、PHP、MySQLまでが入ったパッケージのこと
 
-1. 下記リンクから、XAMPPインストール
-   * https://www.apachefriends.org/jp/index.html
-
+1. 下記リンクから、XAMPPをインストール
+    * https://www.apachefriends.org/jp/index.html
 2. Select Components：すべてチェックが入った状態でNext
-
 3. その他、すべてNextで進む
 
 
-## Composerインストール
+## Composer インストール
 - Composerとは、PHPのライブラリ管理ツールのこと
 
 1. 下記リンクの、__Composer-Setup.exe__ からインストール
     * https://getcomposer.org/download/
-
 2. インストール時の設定
     * Install for all users
     * Developerモード : チェックせずNext
     * Add this PHP to your path : チェック入れる
     * Use a proxy server to connect to internet : チェックせずNext
-
-3. (インストールが完了したら、PC再起動する)
-
+3. (インストールが完了したら、PCを再起動する)
 4. インストールできたか、コマンドプロンプトで確認する
-
 ```
 $ composer -v
 ```
 
 
 ## プロジェクト作成
-1. XAMPPソフト内のエクスプローラーをクリック
+1. XAMPPコントロールパネルのエクスプローラーをクリック
 2. htdocsを開く
 3. 開発するプロジェクト名の新規ファイルを作成  
     ※プロジェクトファイルを作成せず、htdocs内にそのまま以下の手順でLaravelをインストールしてもOK
 
 
-## Laravelインストール
+## Laravel インストール
 - Laravelとは、PHPのフレームワークのこと
 
 1. コマンドプロンプトで、作成したプロジェクト(Laravelをインストールしたいディレクトリ)へ移動
 2. 下記コマンドでLaravelをインストール
-
 ```
 $ composer create-project laravel/laravel sample
 ```  
 
-※下記のほうがインストールが早い可能性あり
-
+  ※下記のほうがインストールが早い可能性あり
 ```
 $ composer create-project --prefer-dist laravel/laravel sample
 ```
 
-※--prefer-dist オプションについて
-    プロジェクトを圧縮してからダウンロードするため、処理が速くなる  
+  ※--prefer-dist オプションについて・・・プロジェクトを圧縮してからダウンロードするため、処理が速くなる
 
 3. インストールしたLaravelのpublicディレクトリ内に、index.phpがあるため、ドキュメントルートを変更する
 4. xampp/apache/conf/httpd.conf を開く
 5. ctrl + F で「documentroot」を検索して、下記のように変更
-
 ```
 DocumentRoot "C:/xampp/htdocs"  // こちらを下記に変更
 
 ↓
 
 DocumentRoot "C:\xampp\htdocs\php-study\laravel-study\public"
-
 → public/index.phpにアクセスされるように、ルートを変更する
 ```
 
@@ -94,19 +83,16 @@ DocumentRoot "C:\xampp\htdocs\php-study\laravel-study\public"
 ## ポート番号確認、変更
 1. XAMPPコントロールパネルから、ApacheのConfigをクリック
 2. メモ帳が開かれるので、下記のように、60行目のコードを変更
-
 ```
 Listen 80   // こちらを下記に変更
 
 ↓
 
 Listen 8080
-
 → 番号を変更すると、8080番で接続できるようになる
 ```
 
 3. 228行目のコードも変更
-
 ```
 ServerName localhost:80   // こちらを下記に変更
 
