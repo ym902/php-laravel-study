@@ -13,7 +13,9 @@ Route::get('about', [HelloController::class, 'index']);
 
 // postsテーブル
 // get
-// Route::get('/posts', 'PostController@showList')->name('posts');
-Route::get('posts', [PostController::class, 'showList']);
+Route::get('posts', [PostController::class, 'showList'])->name('posts');
+
+// get id
+Route::get('posts/{id}', [PostController::class, 'showDetail']);
+
 // post
-// Route::post('about', [HelloController::class, 'index']);
