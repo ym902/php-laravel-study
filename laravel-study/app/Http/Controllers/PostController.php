@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -13,6 +14,12 @@ class PostController extends Controller
      * @return view
      */ 
     public function showList() {
-        return view('post.list');
+        // Eloquent メソッド all
+        $posts = Post::all();
+
+        // dd($posts);
+
+        return view('post.list',
+        ['posts' => $posts]);
     }
 }
