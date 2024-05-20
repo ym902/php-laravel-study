@@ -12,16 +12,16 @@ class PostController extends Controller
     /**
      * 投稿一覧を表示する
      * 
-     * @return view
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
      */ 
-    public function showList() {
+    public function showList(Request $request) {
         // Eloquent メソッド all
         $posts = Post::all();
 
         // dd($posts);
 
-        return view('post.list',
-        ['posts' => $posts]);
+        return response()->json($posts);
     }
 
     /**
@@ -62,6 +62,7 @@ class PostController extends Controller
         // dd($request->all());
         // 投稿されたデータを受け取る
         $inputs = $request->all();
+        
 
         // エラーがなかったらDBに書き込む、エラーの場合は書き込まない
         \DB::beginTransaction();

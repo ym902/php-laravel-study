@@ -1,17 +1,25 @@
+import { useState, useEffect } from 'react';
 import './bulletinBoard.css';
 
 function BulletinBoard() {
-  // <?php
-  //   // スーパーグローバル変数 連想配列
-  //   echo $_POST["submitButton"]; // value属性が読み込まれる
+  // GET fetch
+  const [getFetchData, setGetFetchData] = useState([]);
+  const apiGetUrl = process.env.REACT_APP_API_GET_URL;
 
-  //   if(!empty($_POST["submitButton"])) {
-  //     // empty に値が入っているときの処理
-  //     echo $_POST["username"];
-  //     echo $_POST["comment"];
-  //   }
-  // ?>
-
+  useEffect(() => {
+    fetch(apiGetUrl)
+      .then((res) => {
+        console.log("resの値", res);
+        return res.json();
+      })
+      .then((data) => {
+        console.log("dataの値：", data);
+        setGetFetchData(data);
+      })
+      .catch((error) => {
+        console.error('値を取得できませんでした。', error);
+      });
+  }, []);
 
   return (
     <>
@@ -22,16 +30,18 @@ function BulletinBoard() {
       <div className='board-wrapper'>
         {/* 書き込んだ内容を表示 */}
         <section>
-          <article>
-            <div className='wrapper'>
-              <div className='name-area'>
-                <span>名前：</span>
-                <p className='username'>yuuki</p>
-                <time datetime="">:2024/5/12</time>
+          {getFetchData.map((post, index) => (
+            <article key={index}>
+              <div className='wrapper'>
+                <div className='name-area'>
+                  <span>名前：</span>
+                  <p className='username'>{post.username}</p>
+                  <time dateTime={post.date}>{post.date}</time>
+                </div>
+                <p className='comment'>{post.comment}</p>
               </div>
-              <p className='comment'>コメント</p>
-            </div>
-          </article>
+            </article>
+          ))}
         </section>
 
         {/* 書き込みフォーム */}
