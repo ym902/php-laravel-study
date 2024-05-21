@@ -24,6 +24,7 @@ section {
 section .username {
   color: green !important;
   font-weight: 700;
+  margin-right: 10px;
 }
 
 section .name-area {
@@ -50,6 +51,10 @@ section .comment {
 .form-wrapper {
   padding: 16px;
   margin-left: 20px;
+}
+
+.submit-button {
+  margin-right: 10px;
 }
 
 .comment-text-area {

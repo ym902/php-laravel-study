@@ -13,13 +13,13 @@ Route::get('about', [HelloController::class, 'index']);
 
 // postsテーブル
 // get
-Route::get('posts', [PostController::class, 'showList'])->name('posts');
+// Route::get('posts', [PostController::class, 'showList'])->name('posts');
 
-// postしたデータを表示
-Route::get('posts/create', [PostController::class, 'showCreate'])->name('create');
+// // postしたデータを表示
+// Route::get('posts/create', [PostController::class, 'showCreate'])->name('create');
 
-// post execute=実行する
-Route::post('posts/store', [PostController::class, 'exeStore'])->name('store');
+// // post execute=実行する
+// Route::post('posts', [PostController::class, 'exeStore'])->name('posts.store');
 
-// get id
-Route::get('posts/{id}', [PostController::class, 'showDetail']);
+// // get id
+// Route::get('posts/{id}', [PostController::class, 'showDetail']);
