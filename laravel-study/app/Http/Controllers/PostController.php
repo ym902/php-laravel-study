@@ -10,26 +10,27 @@ use App\Http\Requests\PostRequest;
 class PostController extends Controller
 {
     /**
-     * 投稿一覧を表示する
+     * 投稿一覧を表示する (GET)
      * 
-     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */ 
-    public function showList(Request $request) {
+    public function index()
+    {
         // Eloquent メソッド all
-        $posts = Post::all();
+        $posts = Post::get();
 
         // dd($posts);
 
-        return response()->json($posts);
+        return $posts;
     }
 
     /**
-     * 投稿詳細を表示する
+     * 投稿詳細を表示する (GET ID)
      * @param int $id
      * @return view
      */ 
-    public function showDetail($id) {
+    public function show($id)
+    {
         // Eloquent メソッド all
         $post = Post::find($id);
 
@@ -45,44 +46,41 @@ class PostController extends Controller
     }
 
     /**
-     * POSTした内容を表示する
+     * 投稿した内容をDBに保存 (POST)
      * 
-     * @return view
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
      */ 
-    public function showCreate() {
-        return view('post.form');
-    }
-
-    /**
-     * POSTした内容をDBに保存する
-     * 
-     * @return view
-     */ 
-    public function exeStore(PostRequest $request) {
-        // dd($request->all());
-        // 投稿されたデータを受け取る
-        $inputs = $request->all();
-        
-
-        // エラーがなかったらDBに書き込む、エラーの場合は書き込まない
-        \DB::beginTransaction();
-
-        // 投稿する
+    public function store(PostRequest $request)
+    {
         try {
-            Post::create($inputs);
-            \DB::commit();
+            // 新規のPostモデルを作成する
+            $post = new Post();
+            $post->username = $request->username;
+            $post->comment = $request->comment;
+    
+            // DBにデータを登録する
+            $post->save();
+    
+            // 成功した場合のレスポンスを返す
+            return response()->json($post);
+
         } catch (\Throwable $e) {
             // ログにエラーメッセージを記録
             \Log::error('投稿の処理中にエラーが発生しました: ' . $e->getMessage());
-
-            \DB::rollback();
-
-            // 500エラーのページに遷移する
-            abort(500);
         }
-        
+    }
 
-        session()->flash('err_msg', 'ブログを登録しました。');
-        return redirect(route('posts'));
+    /**
+     * 投稿内容を変更する (PUT)
+     * 
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */ 
+    public function update(PostRequest $request, $id)
+    {
+        // 新規のPostモデルを作成する
+        
     }
 }
