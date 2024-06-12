@@ -4,7 +4,7 @@ PHP、Laravelの学習で、掲示板アプリを作成したリポジトリで�
 
 ## 使用技術
 - React
-- TypeScript
+- JavaScript
 - Laravel
 - PHP
 - XAMPP
